@@ -1,107 +1,62 @@
-/* style.css */
-body{
+body {
   font-family: 'Fira Sans Extra Condensed', sans-serif;
-  font-color: #252440;
+  color: #252440;
   background-color: #f5f5f1;
 }
 
-body h1{
- text-align:center;
- font-family: 'Fira Sans Extra Condensed', sans-serif;
- font-size=20px;
- font-weight=5;
- font-color:  #252850;
- margin: 80px 0px;
+body h1 {
+  text-align: center;
+  font-family: 'Fira Sans Extra Condensed', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: #252850;
+  margin: 80px 0px;
 }
-.ingresar{
- text-align:center;
+.ingresar {
+  text-align: center;
+  margin-bottom: 10px; /* Ajusta el valor según el espacio deseado */
+}
+
 
 .table thead th {
   background-color: #FF0000;
   color: #fff;
-
 }
 
-.head input{
- background-color: #dcdcdc;
- border:none;
-
-}
-.btnGuardar{
- padding:5px 20px;
- background-color: #252440;
- font-color: #ffffff;
- font-family: 'Fira Sans Extra Condensed', sans-serif;
- font-size:15px;
-
- position:relative;
- margin:20px;
- margin-left:800px;
- outline:none;
- border-radius: 25px;
+.head input {
+  background-color: #dcdcdc;
+  border: none; /* Agrega 'border: none;' para eliminar el borde */
 }
 
-table{
-   margin-left:auto;
-   margin-right:auto;
+.btnGuardar {
+  padding: 5px 20px;
+  background-color: #252440;
+  color: #ffffff;
+  font-family: 'Fira Sans Extra Condensed', sans-serif;
+  font-size: 15px;
+  position: relative;
+  margin: 20px;
+  margin-left: 800px;
+  outline: none;
+  border-radius: 25px;
+  transition: background-color 0.3s;
 }
-.tabla{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    margin-top:80px;
+.btnGuardar:hover {
+  background-color: #FF0000; /* Cambia el color al pasar el mouse */
 }
-
-table tr th {
-  background-color: #252850;
+table button {
+ background-color: #252850;
   color: white;
-  font-size:18px;
-  font-weight:5px;
+  font-weight: 5px;
   font-family: Arial;
-  padding:15px 55px;
+  padding: 5px 25px;
+  border-radius: 20px;
+  transition: background-color 0.3s;
 }
-table button{
-   background-color: #252850;
-    color: white;
-    font-weight:5px;
-    font-family: Arial;
-    padding:5px 25px;
-    border-radius: 20px ;
+.table button:hover {
+  background-color: #FF0000;
 }
-
-.table tr,
-.table th {
-  text-align: center;
-}
-
-.table thead th {
-  font-size: 18px;
-  font-weight: 300;
-}
-
-.table tbody td {
-  font-size: 16px;
-}
-
-.table td,
-.table th {
-  padding: 10px;
-}
-
-.table {
-  border: 1px solid #dee2e6;
-  border-collapse: collapse;
-}
-
-.table td,
-.table th {
-  border: 1px solid #dee2e6;
-}
-
-.table {
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.table tbody tr:hover {
-  background-color: #e9ecef;
+.tabla {
+  margin: 80px auto; /* Ajusta el margen superior e inferior según tus necesidades */
+  width: 50%; /* Puedes ajustar el ancho según tus necesidades */
 }
