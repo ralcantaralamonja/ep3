@@ -3,6 +3,7 @@ package com.ep3.grupo5.service;
 import com.ep3.grupo5.entity.Cliente;
 import com.ep3.grupo5.exception.ClienteNotFoundException;
 import com.ep3.grupo5.repository.ClienteRepository;
+import jakarta.persistence.PreUpdate;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -43,6 +44,15 @@ public class ClienteService {
             throw new ClienteNotFoundException(id);
         }
 
+    }
+    public class ModificationDateListener {
+
+        @PreUpdate
+        public void preUpdate(Object entity) {
+            if (entity instanceof Cliente) {
+                ((Cliente) entity).preUpdate();
+            }
+        }
     }
 
 }
