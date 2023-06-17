@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <title th:text="${cliente.nombre}">Cliente</title>
-  <link rel="stylesheet" type="text/css" href="/style.css">
+  <link rel="stylesheet" type="text/css" th:href="@{/style.css}">
   <link href="https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Fira+Sans+Extra+Condensed:wght@400;500&family=Jost:wght@200;400;700;900&family=PT+Serif:wght@400;700&family=Quicksand:wght@300;500;700&family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <h1 th:text="'Editar a cliente : ' + ${cliente.nombre}"></h1>
 
-<div>
-  <form th:action = "@{/cliente/editar(id=${cliente.id})}" method="post" th:object="${cliente}">
+<div class="ingresar">
+  <form class="head" th:action = "@{/cliente/editar(id=${cliente.id})}" method="post" th:object="${cliente}">
     <label for="nombre">Nombre: </label>
     <input type="text" id="nombre" name="nombre" th:value="${cliente.nombre}" />
     <label for="apellido">Apellidos: </label>
@@ -21,7 +21,7 @@
     <label for="numero">Numero: </label>
     <input type="text" id="numero" name="numero" th:value="${cliente.numero}" />
     <br>
-    <input type="submit" value="Actualizar">
+    <input class="btnGuardar" type="submit" value="Actualizar">
   </form>
 </div>
 
