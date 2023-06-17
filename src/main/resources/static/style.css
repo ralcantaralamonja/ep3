@@ -1,34 +1,50 @@
 /* style.css */
+body{
+  font-family: 'Fira Sans Extra Condensed', sans-serif;
+}
 
-/* Cambiar el color de fondo del encabezado de la tabla */
 .table thead th {
-  background-color: #343a40;
+  background-color: #007bff;
   color: #fff;
 }
 
-/* Cambiar el color de fondo de las filas alternas */
 .table tbody tr:nth-child(even) {
-  background-color: #f2f2f2;
+  background-color: #f8f9fa;
 }
 
-/* Alinear el texto en las celdas */
 .table td,
 .table th {
   text-align: center;
 }
 
-/* Cambiar el tamaño de fuente del encabezado */
 .table thead th {
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.table tbody td {
   font-size: 16px;
 }
 
-/* Cambiar el tamaño de fuente del contenido de las celdas */
-.table tbody td {
-  font-size: 14px;
-}
-
-/* Cambiar el espacio entre las celdas */
 .table td,
 .table th {
-  padding: 8px;
+  padding: 10px;
+}
+
+.table {
+  border: 1px solid #dee2e6;
+  border-collapse: collapse;
+}
+
+.table td,
+.table th {
+  border: 1px solid #dee2e6;
+}
+
+.table {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.table tbody tr:hover {
+  background-color: #e9ecef;
 }
