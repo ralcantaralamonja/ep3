@@ -1,5 +1,7 @@
-package com.ep3.grupo5;
+package com.ep3.grupo5.service;
 
+import com.ep3.grupo5.entity.Cliente;
+import com.ep3.grupo5.repository.ClienteRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

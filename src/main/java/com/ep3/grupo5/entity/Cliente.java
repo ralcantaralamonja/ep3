@@ -1,4 +1,4 @@
-package com.ep3.grupo5;
+package com.ep3.grupo5.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
