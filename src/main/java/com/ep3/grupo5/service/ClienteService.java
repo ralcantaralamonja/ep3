@@ -1,6 +1,7 @@
 package com.ep3.grupo5.service;
 
 import com.ep3.grupo5.entity.Cliente;
+import com.ep3.grupo5.exception.ClienteNotFoundException;
 import com.ep3.grupo5.repository.ClienteRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -19,12 +20,12 @@ public class ClienteService {
         return clienteRepository.findAll();
     }
 
-    public Cliente obtenerporId(Long id) throws Exception {
+    public Cliente obtenerporId(Long id){
         Optional<Cliente> optionalCliente = clienteRepository.findById(id);
         if (optionalCliente.isPresent()){
             return optionalCliente.get();
         }else{
-            throw new Exception("El alumno no existe");
+            throw new ClienteNotFoundException(id);
         }
     }
 
@@ -32,14 +33,14 @@ public class ClienteService {
         return clienteRepository.save(cliente);
     }
 
-    public void eliminar(Long id) throws Exception {
+    public void eliminar(Long id){
 
         Optional<Cliente> optionalCliente= clienteRepository.findById(id);
 
         if (optionalCliente.isPresent()){
             clienteRepository.delete(optionalCliente.get());
         }else{
-            throw new Exception("El alumno no existe");
+            throw new ClienteNotFoundException(id);
         }
 
     }
