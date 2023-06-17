@@ -17,18 +17,18 @@ public class ClienteController {
     @GetMapping("")
     public String index(Model model){
         model.addAttribute("clientes", clienteService.obtenerTodos());
-        return "cliente/cliente";
+        return "/cliente/index";
     }
-gf
-    @PutMapping("")
-    public String registrar(@ModelAttribute("cliente")Cliente cliente){
+
+    @PostMapping("")
+    public String registrar(@ModelAttribute("templates/cliente")Cliente cliente){
         clienteService.registrar(cliente);
         return "redirect:/cliente";
     }
 
     @GetMapping("/editar")
     public String editar(@RequestParam("id") Long id, Model model){
-        model.addAttribute("cliente", clienteService.obtenerporId(id));
+        model.addAttribute("templates/cliente", clienteService.obtenerporId(id));
         return "cliente/editar";
     }
 
