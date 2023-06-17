@@ -19,7 +19,7 @@ public class ClienteController {
         model.addAttribute("clientes", clienteService.obtenerTodos());
         return "/cliente";
     }
-
+gf
     @PutMapping("")
     public String registrar(@ModelAttribute("cliente")Cliente cliente){
         clienteService.registrar(cliente);
