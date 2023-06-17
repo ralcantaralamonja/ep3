@@ -17,13 +17,13 @@ public class ClienteController {
     @GetMapping("")
     public String index(Model model){
         model.addAttribute("clientes", clienteService.obtenerTodos());
-        return "/cliente";
+        return "cliente/cliente";
     }
 
     @PutMapping("")
     public String registrar(@ModelAttribute("cliente")Cliente cliente){
         clienteService.registrar(cliente);
-        return "redirect/cliente";
+        return "redirect:/cliente";
     }
 
     @GetMapping("/editar")
