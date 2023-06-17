@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -19,9 +21,20 @@ public class Cliente {
     @Column(length = 150)
     private String apellido ;
 
-    @Column(length = 150,unique=true)
+    @Column(length = 100,unique=true)
     private String correo ;
     @Column(length = 9,unique=true)
     private String numero ;
+
+    private Date fecha_creacion;
+    @PrePersist
+    public void AntesDeInsertar(){
+        System.out.println("Esto se ejecuta antes de insertar");
+    }
+    @PostPersist
+
+    public void fechaInsercion(){
+        fecha_creacion = new Date();
+    }
 
 }
