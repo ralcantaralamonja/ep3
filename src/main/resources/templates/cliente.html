@@ -3,17 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>Clientes</title>
-    <link rel="stylesheet" href="style.css"><link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" type="text/css" href="/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Fira+Sans+Extra+Condensed:wght@400;500&family=Jost:wght@200;400;700;900&family=PT+Serif:wght@400;700&family=Quicksand:wght@300;500;700&family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
+<div>
+    <form th:action="@{/cliente}" method="post" th:object="${cliente}">
+        <label for="nombreCliente">Nombre:</label>
+        <input type="text" id="nombreCliente" name="nombreCliente" />
+        <label for="apellidoCliente">Apellido:</label>
+        <input type="text" id="apellidoCliente" name="apellidoCliente" />
+        <label for="correoCliente">Correo:</label>
+        <input type="text" id="correoCliente" name="correoCliente" />
+        <label for="celular">Celular:</label>
+        <input type="text" id="celular" name="celular" />
+        <br>
+        <input type="submit" value="Guardar">
+    </form>
+</div>
+
 <div class="container mt-4">
     <h2>Tabla de datos - Grupo 5</h2>
-    <table class="table">
+    <table th:if="${!clientes.isEmpty()}" class="table">
         <thead>
         <tr>
-            <th>ID</th>
             <th>Nombre</th>
             <th>Apellido</th>
             <th>Correo</th>
@@ -21,19 +34,11 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <td>1</td>
-            <td>Orlando Alonso</td>
-            <td>Gonzales Paz</td>
-            <td>orlando13gonzales@gmail.com</td>
-            <td>991214502</td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>Itachi</td>
-            <td>Uchiha</td>
-            <td>itachiuchiha@gmail.com</td>
-            <td>987654321</td>
+        <tr th:each="cliente : ${clientes}">
+            <td th:text="${cliente.nombreCliente}"></td>
+            <td th:text="${cliente.apellidoCliente}"></td>
+            <td th:text="${cliente.correoCliente}"></td>
+            <td th:text="${cliente.celular}"></td>
         </tr>
         </tbody>
     </table>
