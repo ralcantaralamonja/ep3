@@ -15,6 +15,11 @@ body h1{
 }
 .ingresar{
  text-align:center;
+
+.table thead th {
+  background-color: #FF0000;
+  color: #fff;
+
 }
 
 .head input{

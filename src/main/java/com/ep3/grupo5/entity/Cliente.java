@@ -12,6 +12,7 @@ import java.util.Date;
 @AllArgsConstructor
 @Entity
 @Table(name="tbl_cliente")
+@EntityListeners(com.ep3.grupo5.listeners.ModificationDateListener.class)
 public class Cliente {
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,6 +38,10 @@ public class Cliente {
         fecha_creacion = new Date();
     }
 
+    private Date fechaModificacion;
+    public void preUpdate() {
+        this.fechaModificacion = new Date();
+    }
 
 
 }
