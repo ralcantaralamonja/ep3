@@ -1,0 +1,34 @@
+/* style.css */
+
+/* Cambiar el color de fondo del encabezado de la tabla */
+.table thead th {
+  background-color: #343a40;
+  color: #fff;
+}
+
+/* Cambiar el color de fondo de las filas alternas */
+.table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Alinear el texto en las celdas */
+.table td,
+.table th {
+  text-align: center;
+}
+
+/* Cambiar el tamaño de fuente del encabezado */
+.table thead th {
+  font-size: 16px;
+}
+
+/* Cambiar el tamaño de fuente del contenido de las celdas */
+.table tbody td {
+  font-size: 14px;
+}
+
+/* Cambiar el espacio entre las celdas */
+.table td,
+.table th {
+  padding: 8px;
+}
