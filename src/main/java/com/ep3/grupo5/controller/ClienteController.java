@@ -29,7 +29,13 @@ public class ClienteController {
     @GetMapping("/editar")
     public String editar(@RequestParam("id") Long id, Model model){
         model.addAttribute("templates/cliente", clienteService.obtenerporId(id));
-        return "cliente/editar";
+        return "/cliente/editar";
+    }
+
+    @PostMapping("/editar")
+    public String actualizar(@ModelAttribute("cliente") Cliente cliente){
+        clienteService.registrar(cliente);
+        return "redirect:/cliente";
     }
 
     @DeleteMapping("/eliminar")
