@@ -21,14 +21,14 @@ public class ClienteController {
     }
 
     @PostMapping("")
-    public String registrar(@ModelAttribute("templates/cliente")Cliente cliente){
+    public String registrar(@ModelAttribute("cliente")Cliente cliente){
         clienteService.registrar(cliente);
         return "redirect:/cliente";
     }
 
     @GetMapping("/editar")
     public String editar(@RequestParam("id") Long id, Model model){
-        model.addAttribute("templates/cliente", clienteService.obtenerporId(id));
+        model.addAttribute("cliente", clienteService.obtenerporId(id));
         return "/cliente/editar";
     }
 
