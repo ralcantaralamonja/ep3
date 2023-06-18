@@ -7,9 +7,9 @@ body {
 body h1 {
   text-align: center;
   font-family: 'Fira Sans Extra Condensed', sans-serif;
-  font-size: 20px;
-  font-weight: 500;
-  color: #252850;
+  font-size: 40px;
+  font-weight: bolder;
+  color: #252440;
   margin: 80px 0px;
 }
 .ingresar {
@@ -18,9 +18,21 @@ body h1 {
 }
 
 
-.table thead th {
-  background-color: #FF0000;
-  color: #fff;
+table tr th {
+  background-color: #3e5f8a;
+  color: #ffffff;
+  padding: 12px 50px;
+  font-weight: lighter;
+  font-size:17px
+  margin: 0px 5px;
+}
+table tr td {
+  text-align:center;
+  color: #3e5f8a;
+  font-size:15px
+  margin: 0px 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  padding: 10px 50px;
 }
 
 .head input {
@@ -29,9 +41,9 @@ body h1 {
 }
 
 .btnGuardar {
-  padding: 5px 20px;
+  padding: 5px 40px;
   background-color: #252440;
-  color: #ffffff;
+  color: #3e5f8a;
   font-family: 'Fira Sans Extra Condensed', sans-serif;
   font-size: 15px;
   position: relative;
@@ -42,7 +54,8 @@ body h1 {
   transition: background-color 0.3s;
 }
 .btnGuardar:hover {
-  background-color: #FF0000; /* Cambia el color al pasar el mouse */
+  background-color: #252850; /* Cambia el color al pasar el mouse */
+  color: #fff;
 }
 table button {
  background-color: #252850;
@@ -52,11 +65,15 @@ table button {
   padding: 5px 25px;
   border-radius: 20px;
   transition: background-color 0.3s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  margin: 0px 5px;
+  position:center;
 }
-.table button:hover {
-  background-color: #FF0000;
+table button:hover {
+  background-color: #3e5f8a;
 }
 .tabla {
   margin: 80px auto; /* Ajusta el margen superior e inferior según tus necesidades */
-  width: 50%; /* Puedes ajustar el ancho según tus necesidades */
+  width: 80%; /* Puedes ajustar el ancho según tus necesidades */
+
 }
