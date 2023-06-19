@@ -12,7 +12,7 @@ import java.util.Date;
 @AllArgsConstructor
 @Entity
 @Table(name="tbl_cliente")
-@EntityListeners(com.ep3.grupo5.listeners.ModificationDateListener.class)
+
 public class Cliente {
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,21 +27,22 @@ public class Cliente {
     @Column(length = 9,unique=true)
     private String numero ;
 
-    private Date fecha_creacion;
-    @PrePersist
-    public void AntesDeInsertar(){
-        System.out.println("Esto se ejecuta antes de insertar");
-    }
-    @PostPersist
 
-    public void fechaInsercion(){
-        fecha_creacion = new Date();
-    }
 
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(updatable = false)
+    private Date fechaCreacion;
+
+    @Temporal(TemporalType.TIMESTAMP)
     private Date fechaModificacion;
-    public void preUpdate() {
-        this.fechaModificacion = new Date();
+
+    @PrePersist
+    protected void antesDeInsertar() {
+        fechaCreacion = new Date();
     }
 
-
+    @PreUpdate
+    protected void antesDeActualizar() {
+        fechaModificacion = new Date();
+    }
 }

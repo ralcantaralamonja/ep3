@@ -45,14 +45,6 @@ public class ClienteService {
         }
 
     }
-    public class ModificationDateListener {
 
-        @PreUpdate
-        public void preUpdate(Object entity) {
-            if (entity instanceof Cliente) {
-                ((Cliente) entity).preUpdate();
-            }
-        }
-    }
 
 }
