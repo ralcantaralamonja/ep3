@@ -11,10 +11,11 @@ import java.util.Collections;
 public class AppUserDetails implements UserDetails {
     private final Usuario usuario;
     private final String nombre; //nombre que vamos a mostrar en la aplicacion
-
+    private final int id;
     public AppUserDetails(Usuario usuario1) {
         this.usuario = usuario1;
         this.nombre = usuario1.getNombres();
+        this.id= usuario1.getId();
     }
 
     @Override
@@ -54,5 +55,9 @@ public class AppUserDetails implements UserDetails {
 
     public String getNombre(){
         return nombre;
+    }
+
+    public Integer getId() {
+        return id;
     }
 }

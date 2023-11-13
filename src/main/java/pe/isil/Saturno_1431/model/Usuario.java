@@ -30,11 +30,11 @@ public class Usuario {
 
     private String password;
 
-    @NotBlank
+    //@NotBlank
     @Transient
     private String password1;
 
-    @NotBlank
+    //@NotBlank
     @Transient
     private String password2;
 

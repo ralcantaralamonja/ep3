@@ -63,5 +63,8 @@ public class RegistroUsuarioController {
 
         redirectAttributes.addAttribute("registroExitoso", "");
         return "redirect:/login";
+
+
+
     }
 }
