@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{master.html}"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div layout:fragment="content" class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-4">
+            <div class="bg-white shadow rounded p-5">
+                <h3>Actualizar su password</h3>
+
+                <form method="post" th:action="@{/updatepassword/guardar}" class="mt-3">
+                    <div class="mb-2">
+                        <label for="actualpassword">password actual</label>
+                        <input type="password" class="form-control" id="actualpassword" name="actualpassword">
+                    </div>
+                    <div class="text-end mt-3">
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                        <a href="/login" class="btn btn-light">Cancelar</a>
+                    </div>
+                    <div th:if="${param.error}" class="alert alert-danger my-3">
+                        Contraseña actual incorrecta.
+                    </div>
+
+                    <div th:if="${param.mismatch}" class="alert alert-danger my-3">
+                        Las contraseñas no coinciden.
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
