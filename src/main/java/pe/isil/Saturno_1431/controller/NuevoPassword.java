@@ -5,6 +5,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,43 +19,40 @@ public class NuevoPassword {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+
     private UsuarioRepository usuarioRepository;
 
     @GetMapping("")
-    public String Nuevo() {
+    public String nuevo() {
         return "nuevopasword";
     }
 
     @PostMapping("/guardar")
-    public String guardarPassword(@RequestParam String actualpassword) {
-        // Obtener la autenticación actual
+    public String guardarPassword(
+            @RequestParam String actualpassword,
+            @RequestParam String nuevopassword,
+            @RequestParam String repitepassword,
+            Model model
+    ) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-
-        // Obtener la instancia de AppUserDetails del principal
         AppUserDetails appUserDetails = (AppUserDetails) authentication.getPrincipal();
-
-        // Obtener la contraseña actual del usuario
         String currentPassword = appUserDetails.getPassword();
-
-        System.out.println("Pass ingresada :"+ actualpassword);
-        System.out.println("Pass actual :"+ currentPassword);
-
-        // Imprimir la contraseña actual del usuario
-        if (passwordEncoder.matches(actualpassword, currentPassword)) {
-            System.out.println("Coinciden");
-            // La contraseña actual es correcta
-            // Puedes realizar acciones adicionales aquí
-
-            // Redirigir a una página de éxito o mostrar un mensaje de éxito
-            return "redirect:/updatepassword";
-        } else {
-            // La contraseña actual no es correcta, mostrar un mensaje de error
-            System.out.println("No coinciden");
-            return "redirect:/updatepassword";
+        int ok = 0;
+        // Validar la contraseña actual
+        if (!passwordEncoder.matches(actualpassword, currentPassword) || actualpassword.isEmpty()) {
+            ok++;
+            model.addAttribute("errorActual", "La clave ingresada no es correcta o vacia");
+            return "nuevopasword";
         }
 
+        // Validar que las contraseñas nuevas coincidan
+        if (!nuevopassword.equals(repitepassword) || nuevopassword.isEmpty()) {
+            ok++;
+            model.addAttribute("errorNueva", "Las claves nuevas no coinciden o vacias");
+            return "nuevopasword";
+        }
 
-        // Puedes realizar acciones adicionales según tu lógica
-
-     }
+        System.out.println(ok);
+        return "redirect:/updatepassword";
+    }
 }
